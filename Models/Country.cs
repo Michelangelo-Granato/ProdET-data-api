@@ -2,7 +2,8 @@ namespace prodet_data_api.Models
 {
     public class Country
     {
-        public String Name {get; set;}
+        public long Id { get; set; }
+        public string? Name {get; set;}
         public int Population {get; set;}
     }
 }

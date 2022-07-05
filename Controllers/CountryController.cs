@@ -20,9 +20,12 @@ public class CountryController : ControllerBase
     }
 
 
-    [HttpGet(Name = "GetCountryData")]
+    [HttpGet("/country/{countryName}")]
     public Country Get(string countryName)
     {
-        return new Country();
+        return new Country()
+        {
+            Name = countryName,
+        };
     }
 }

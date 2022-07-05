@@ -1,5 +1,5 @@
-/*using Microsoft.EntityFrameworkCore;
-using System.Diagnostics.CodeAnalysis;
+using Microsoft.EntityFrameworkCore;
+using prodet_data_api.Models;
 
 namespace TodoApi.Models
 {
@@ -10,6 +10,6 @@ namespace TodoApi.Models
         {
         }
 
-        public DbSet<CountryItem> CountryItems { get; set; } = null!;
+        public DbSet<Country> CountryItems { get; set; } = null!;
     }
-}*/
+}

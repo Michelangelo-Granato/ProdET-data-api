@@ -1,15 +1,27 @@
-//using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
 using prodet_data_api.Models;
-
+using TodoApi.Models;
 
 var builder = WebApplication.CreateBuilder(args);
+var MyAllowSpecificOrigins = "_myAllowSpecificOrigins";
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy(name: MyAllowSpecificOrigins,
+                      policy =>
+                      {
+                          policy.WithOrigins("https://localhost:3000",
+                              "http://localhost:3000",
+                              "https://localhost:3001",
+                              "http://localhost:3001");
+                      });
+});
 
 // Add services to the container.
 
 builder.Services.AddControllers();
 
-//builder.Services.AddDbContext<CountryContext>(opt =>
-//    opt.UseInMemoryDatabase("CountryList"));
+builder.Services.AddDbContext<CountryContext>(opt =>
+    opt.UseInMemoryDatabase("CountryList"));
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
@@ -25,6 +37,7 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+app.UseCors(MyAllowSpecificOrigins);
 
 app.UseAuthorization();
 
