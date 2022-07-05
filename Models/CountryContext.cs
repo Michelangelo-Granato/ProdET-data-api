@@ -1,7 +1,6 @@
 using Microsoft.EntityFrameworkCore;
-using prodet_data_api.Models;
 
-namespace TodoApi.Models
+namespace prodet_data_api.Models
 {
     public class CountryContext : DbContext
     {

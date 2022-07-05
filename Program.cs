@@ -1,6 +1,5 @@
 using Microsoft.EntityFrameworkCore;
 using prodet_data_api.Models;
-using TodoApi.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 var MyAllowSpecificOrigins = "_myAllowSpecificOrigins";
